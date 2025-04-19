@@ -126,6 +126,7 @@ class ParkingService{
 
     final HashMap<Long,ParkingSlot> ticket = new HashMap<>();
 
+
     void parkVehicle(ParkingLot parkingLot, Vehicle vehicle){
         ParkingSlot parkingSlot = checkAvailableSlots(parkingLot,vehicle);
 
