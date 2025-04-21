@@ -7,6 +7,10 @@ import java.util.*;
 
 public class Main{
     public static void main(String[] args){
+        List<int[]> temp = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+
+
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(1);
         arr.add(5);
@@ -16,6 +20,10 @@ public class Main{
         arr.add(2,19);
         System.out.println(arr);
         System.out.println(arr.get(arr.size()-1));
+        Iterator<Integer> it = arr.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
         Map<Integer,Integer> hashset = new HashMap<>();
         int[] arrr = new int[5];
         for(int i=0;i<5;i++){
@@ -31,6 +39,7 @@ public class Main{
         String s = "dcba";
         System.out.println("==========");
         System.out.println(s.substring(2));
+
         StringBuilder check = new StringBuilder();
         for(int i=0;i<5;i++){
             check.append(i);
