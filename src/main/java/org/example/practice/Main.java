@@ -18,6 +18,13 @@ public class Main{
         arr.add(0);
         arr.set(3,10);
         arr.add(2,19);
+
+        List<Integer> fil = arr.stream()
+                        .filter(n->n%2==0)
+                                .toList();
+
+        System.out.println(fil);
+
         System.out.println(arr);
         System.out.println(arr.get(arr.size()-1));
         Iterator<Integer> it = arr.iterator();
@@ -25,6 +32,7 @@ public class Main{
             System.out.println(it.next());
         }
         Map<Integer,Integer> hashset = new HashMap<>();
+        System.out.println(hashset.get(1));
         int[] arrr = new int[5];
         for(int i=0;i<5;i++){
             arrr[i] = 5-i;
@@ -82,44 +90,44 @@ public class Main{
     }
 
     public static List<List<Integer>> five(List<List<Integer>> inp){
+//        [[1, 87], [2, 88]]
 
         int n=5;
+        Map<Integer,PriorityQueue<Integer>> hm = new HashMap<>();
+        List<List<Integer>> res = new ArrayList<>();
 
-        TreeMap<Integer, Queue<Integer>> treeMap = new TreeMap<>();
         for(List<Integer> i:inp){
             int key = i.get(0);
             int val = i.get(1);
-            if (treeMap.containsKey(key)){
-                Queue<Integer> tempPq = treeMap.get(key);
-                tempPq.add(val);
-                if (tempPq.size()>n){
-                    tempPq.poll();
+
+            if(hm.containsKey(key)){
+                PriorityQueue<Integer> pqq = hm.get(key);
+                pqq.add(val);
+                if(pqq.size()>5){
+                    pqq.poll();
                 }
+
             }
             else{
-                Queue<Integer> arr = new PriorityQueue<>();
-                arr.add(val);
-                treeMap.put(key,arr);
+                PriorityQueue<Integer> pq = new PriorityQueue<>();
+                pq.add(val);
+                hm.put(key,pq);
             }
         }
-
-        List<List<Integer>> res = new ArrayList<>();
-
-        for(Map.Entry<Integer,Queue<Integer>> entry: treeMap.entrySet()){
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(Map.Entry<Integer,PriorityQueue<Integer>> entry:hm.entrySet()){
             int key = entry.getKey();
-            Queue<Integer> val = entry.getValue();
+            PriorityQueue<Integer> val = entry.getValue();
+
             int sum=0;
-            for(int i: val){
-                sum+=i;
+            while(val.size()!=0){
+                sum+=val.poll();
             }
-            List<Integer> arr = new ArrayList<>();
-            arr.add(key);
-            arr.add(sum/n);
-            res.add(arr);
+            res.add(Arrays.asList(key,sum/5));
 
         }
-        return res;
 
+        return res;
 
     }
 }
