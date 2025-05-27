@@ -4,17 +4,27 @@ public class Employee {
     private int id;
     private String name;
     private String address;
+    private String grade;
     private double salary;
 
-    public Employee(int id, String name, String address, double salary) {
+    public Employee(int id, String name, String address, String grade, double salary) {
         this.id = id;
         this.name = name;
         this.address = address;
+        this.grade = grade;
         this.salary = salary;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public String getName() {
@@ -45,13 +55,4 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", salary=" + salary +
-                '}';
-    }
 }
