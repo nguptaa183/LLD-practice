@@ -7,9 +7,26 @@ import java.util.*;
 
 public class Main{
     public static void main(String[] args){
+
+        boolean[][] elo = new boolean[2][2];
+        System.out.println(Arrays.deepToString(elo));
+        ArrayDeque<String> q = new ArrayDeque<>();
+        q.add("1");
+        q.add("2");
+        q.add("3");
+        q.pop();
+        System.out.println(q);
+        String str = "2,3";
+        String ress = str.split(",")[0];
+        System.out.println(ress);
+
+        List<Integer> arrrr = new ArrayList<>();
+
+        System.out.println(arrrr);
+
+
         List<int[]> temp = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
-
 
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(1);
